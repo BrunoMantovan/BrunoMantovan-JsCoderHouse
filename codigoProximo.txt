@@ -1,0 +1,64 @@
+/* const array = [];
+let saldo = 0;
+
+let jugar = document.querySelector(".jugar");
+let botones = document.querySelectorAll(".boton");
+
+let color = 0;
+let paridad = 0;
+let montoColor = 0;
+let montoParidad = 0;
+
+
+for(let i=0; i<botones.length; i++){
+    botones[i].addEventListener("click", function(){
+        let plata = 100;
+        if(this.innerText == "Par" || this.innerText == "Impar"){
+            paridad = this.innerText;
+            montoParidad += plata;
+        }else if(this.innerText == "Rojo" || this.innerText == "Negro"){
+            color = this.innerText;
+            montoColor += plata;
+        }else{
+
+            let numero = this.innerText;
+            // Check if the array already contains the numero
+            const existingItemIndex = array.findIndex(item => item.num === numero);
+
+            if (existingItemIndex !== -1) {
+            // If the numero already exists in the array, increase plata by 20
+            array[existingItemIndex].plata += plata;
+            console.log(`Increased plata for Numero ${numero} to ${array[existingItemIndex].plata}`);
+            } else {
+            const elegido = new placeBet(numero, plata);
+            array.push(elegido);
+            console.log(array);
+            }
+        }
+    });
+}
+
+function placeBet(numero, plata){
+    this.num = numero;
+    this.plata = plata;
+}
+
+jugar.addEventListener("click", function () {
+    
+    const numeroRandom = Math.floor(Math.random() * 37);
+    console.log(numeroRandom);
+  
+    
+    const existingItemIndex = array.findIndex(item => item.num === numeroRandom);
+  
+    if (existingItemIndex !== -1) {
+      console.log("Original saldo:", saldo);
+  
+      
+      saldo += array[existingItemIndex].plata;
+  
+      console.log("Updated saldo:", saldo);
+    }else{
+        console.log("no estaba");
+    }
+  }); */

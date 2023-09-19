@@ -1,9 +1,7 @@
-
-alert("Bienvenido a al juego de la ruleta");
-let saldo = Number(prompt("Ingrese el saldo total"));
 const rojo = [1, 3, 5 ,7 ,9, 12, 14 ,16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36];
 const negro = [2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 25];
-const array = [];
+
+let saldo = 5000;
 
 const numerosSalidos = [];
 const numerosElegidos = [];
@@ -11,7 +9,7 @@ const numerosElegidos = [];
 let montoNumero = 0;
 let montoColor = 0;
 let color = 0;
-
+alert("Bienvenido a al juego de la ruleta su saldo es de $" + saldo);
 
 while(saldo > 0){
     numerosElegidos.splice(0, numerosElegidos.length);
@@ -115,33 +113,3 @@ if(saldo <= 0){
 }
 
 
-
-
-
-
-let botones = document.querySelectorAll(".boton");
-for(let i=0; i<botones.length; i++){
-    botones[i].addEventListener("click", function(){
-        let numero = this.innerText;
-        let plata = 100;
-        const elegido = new placeBet(numero, plata);
-       
-        // Check if the array already contains the numero
-        const existingItemIndex = array.findIndex(item => item.num === numero);
-
-    if (existingItemIndex !== -1) {
-      // If the numero already exists in the array, increase plata by 20
-      array[existingItemIndex].plata += plata;
-      console.log(`Increased plata for Numero ${numero} to ${array[existingItemIndex].plata}`);
-    } else {
-      const elegido = new placeBet(numero, plata);
-      array.push(elegido);
-      console.log(array);
-    }   
-    });
-}
-
-function placeBet(numero, plata){
-    this.num = numero;
-    this.plata = plata;
-}
