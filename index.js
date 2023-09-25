@@ -82,9 +82,13 @@ function ruleta(){
     
     alert("Numero: " + numeroTirado.num + ", Color: " + numeroTirado.col + ", " + numeroTirado.paridad);
 
-    if(numerosElegidos.includes(numeroRuleta)){
+
+    
+    
+    if(numerosElegidos.find((element) => element == numeroRuleta)){
         saldo = saldo + (montoNumero*36);
     }
+
 
     if(color == numeroTirado.col){
         saldo = saldo + (montoColor*2);
