@@ -87,6 +87,7 @@ function ruleta(){
     
     if(numerosElegidos.find((element) => element == numeroRuleta)){
         saldo = saldo + (montoNumero*36);
+        console.log("gano $" + montoNumero*36);
     }
 
 
