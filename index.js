@@ -1,5 +1,5 @@
 const rojo = [1, 3, 5 ,7 ,9, 12, 14 ,16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36];
-const negro = [2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 25];
+const negro = [2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35];
 const limitesAngulos = [0, 9.72973, 19.45945, 29.18919, 38.91892, 48.64865, 58.37838, 68.10811, 77.83784, 87.56757, 97.29730, 107.02703,
     116.75676, 126.48649, 136.21622, 145.94595, 155.67568, 165.40541, 175.13514, 184.86486, 194.59459, 204.32432, 214.05405, 223.78378,
     233.51351, 243.24324, 252.97297, 262.70270, 272.43243, 282.16216, 291.89189, 301.62162, 311.35135, 321.08108, 330.81081, 340.54054, 350.27027];
@@ -7,8 +7,6 @@ const numerosEnRuleta = [26, 3, 35, 12, 28, 7, 29, 18, 22, 9, 31, 14, 20, 1, 33,
 const numerosSalidos = [];
 const numerosElegidos = [];
 
-console.log(limitesAngulos.length);
-console.log((numerosEnRuleta.length));
 const array = [];
 let saldo = 5000;
 
@@ -78,21 +76,23 @@ jugar.addEventListener("click", function () {
     ruleta.style.transition = `all 5s ease`;
     ruleta.style.transform = `rotate(${deg}deg)`;
     
+    setTimeout(function(){
+        pago(deg);
+        
+    }, 5000);
+  });
 
 
+function pago(grados){
+    ruleta.style.transition = `none`;
 
-
-
-    ruleta.addEventListener("transitionend", () => {
-        ruleta.style.transition = `none`;
-
-        const deg_real = deg%360;
+        const deg_real = grados%360;
         console.log(deg_real);
         ruleta.style.transform = `rotate(${deg_real}deg)`;
         for (let i = 0; i < limitesAngulos.length; i++) {
             if (deg_real > limitesAngulos[i]) {
                 numeroRuleta = i;
-            } else {
+            }else{
                 break;
             }
         }
@@ -102,18 +102,16 @@ jugar.addEventListener("click", function () {
         const numeroTirado = new tiro(numeroRandom);
         console.log(numeroTirado);
 
-        const existingItemNumero = array.findIndex(item => item.valor == numeroTirado.num);
-        const existingItemColor = array.findIndex(item => item.valor == numeroTirado.col);
-        const existingItemParidad = array.findIndex(item => item.valor == numeroTirado.paridad);
-    
+        const existingItemNumero = array.findIndex((item) => item.valor == numeroTirado.num);
+        const existingItemColor = array.findIndex((item) => item.valor == numeroTirado.col);
+        const existingItemParidad = array.findIndex((item) => item.valor == numeroTirado.paridad);
+        console.log(existingItemNumero);
     
         if (existingItemNumero !== -1) {
           console.log("Original saldo:", saldo);  
           
           saldo += array[existingItemNumero].plata*36;
           console.log("Updated saldo:", saldo);
-        }else{
-            console.log("no estaba");
         }
         if (existingItemColor !== -1) {
             saldo += array[existingItemColor].plata*2;
@@ -122,23 +120,17 @@ jugar.addEventListener("click", function () {
             saldo += array[existingItemParidad].plata*2;
         }
         
-        array.splice(0, array.length);
+        console.log(array);
         apostado = 0;
         saldo_text_html.innerHTML = `${saldo}`;
         apostado_text_html.innerHTML = `${apostado}`;
-    })
-    
-    
+        array.splice(0, array.length);
+}
 
-    
-  });
-
-
-
-  function tiro(numero){
+function tiro(numero){
     this.num = numero;
 
-    rojo.includes(numero) ? this.col = "Rojo" : this.col = "Negro";
+    rojo.includes(numero) ? this.col = "Rojo" : negro.includes(numero) ? this.col = "Negro" : this.col = "Verde";
     numero % 2 === 0 ? this.paridad = "Par" : this.paridad = "Impar";
 }
 /* while(saldo > 0){
