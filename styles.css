@@ -9,7 +9,24 @@ body{
     background-image: url(/Multimedia/Imgs/background.jpg);
     background-size: cover;
 }
-
+.lista_numeros{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 10px;
+    top: 10%;
+    color: white;
+    
+}
+.numeros_salidos{
+    border: 1px solid white;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .5s;
+}
 .juego{
     position: relative;
     width: 400px;
@@ -55,8 +72,8 @@ body{
     border-radius: 50%;
     font-size: 25px;
     font-weight: 600;
-    background-color: black;
-    color: white;
+    background-color: #000000;
+    color: #ffffff;
 }
 .tabla button span{
     display: block;
@@ -66,7 +83,7 @@ body{
     opacity: .8;
 }
 .tabla .cero_bt{
-    background-color: green;
+    background-color: #008000;
 }
 .cero{
     grid-row: 1/5;
@@ -84,7 +101,7 @@ body{
     grid-column: 11/14;
 }
 .tabla .color_rojo{
-    background-color: red;
+    background-color: #ff0000;
 }
 .tabla .paridad{
     border-radius: 0;
