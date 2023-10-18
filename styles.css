@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -6,17 +8,22 @@
 
 
 body{
-    background-image: url(/Multimedia/Imgs/background.jpg);
+    background-image: url(/Multimedia/Imgs/vecteezy_poker-background-with-neon-chip-and-ace-bet-vector_24238317.jpg);
     background-size: cover;
 }
 .lista_numeros{
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
     position: absolute;
-    right: 10px;
-    top: 10%;
+    right: 1.5%;
+    top: 4%;
     color: white;
-    
+    height: 90px;
+    width: 620px;
+    border: 15px solid #bcc6cc;
+    border-radius: 20px;
 }
 .numeros_salidos{
     border: 1px solid white;
@@ -47,11 +54,11 @@ body{
 
 .tabla{
     width: 60%;
-    height: 300px;
+    height: 325px;
     display: grid;
-    grid-template-columns: repeat(13, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    margin: 35px auto;
+    grid-template-columns: repeat(14, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    margin: 25px auto;
     background-color: transparent;
     grid-gap: 0px;
 }
@@ -67,9 +74,8 @@ body{
 
 .tabla button{
     border: none;
-    width: 75%;
-    height: 75%;
-    border-radius: 50%;
+    width: 100%;
+    height: 100%;
     font-size: 25px;
     font-weight: 600;
     background-color: #000000;
@@ -77,7 +83,7 @@ body{
 }
 .tabla button span{
     display: block;
-    transform: rotate(-90deg);
+    
 }
 .tabla button:active{
     opacity: .8;
@@ -86,31 +92,55 @@ body{
     background-color: #008000;
 }
 .cero{
-    grid-row: 1/5;
+    grid-row: 1/4;
+}
+.docena_1{
+    grid-column: 2/6;
+}
+.docena_2{
+    grid-column: 6/10;
+}
+.docena_3{
+    grid-column: 10/14;
+}
+.mitad_1{
+    grid-column: 2/4;
 }
 .par{
-    grid-column: 2/5;
+    grid-column: 4/6;
 }
 .rojo{
-    grid-column: 5/8;
+    grid-column: 6/8;
 }
 .negro{
-    grid-column: 8/11;
+    grid-column: 8/10;
 }
 .impar{
-    grid-column: 11/14;
+    grid-column: 10/12;
+}
+.mitad_2{
+    grid-column: 12/14;
 }
 .tabla .color_rojo{
     background-color: #ff0000;
 }
 .tabla .paridad{
     border-radius: 0;
-    border: 1px solid white;
+    width: 100%;
+    height: 100%;
     background-color: transparent;    
 }
+.tabla .color_rojo{
+    background-color: #ff0000;
+}
+.tabla .color_negro{
+    background-color: #000000;
+}
 footer{
-    height: 100px;
-    background-color: #5f3806;
+    height: 125px;
+    background-color: #bcc6cc;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -119,9 +149,97 @@ footer{
     align-items: center;
     justify-content: space-between;
     font-size: 20px;
-    color: goldenrod;
+    color: black;
+    font-family: 'Playfair Display', serif;
 }
 footer button{
     height: 50px;
     width: 100px;
+}
+footer div{
+    min-width: 200px;
+}
+footer .div_footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+footer .div_footer2{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+footer .div_footer2 button{
+    margin: 5px;
+    cursor: pointer;
+}
+.monto {
+    display: none;
+}  
+.monto:checked + label {
+    opacity: 1;
+}
+.monto:not(:checked) + label{
+    opacity: .7;
+}
+.label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 5px;
+}
+.label:nth-child(2){
+    background: url('./Multimedia/Imgs/fichaAzul.png') center center no-repeat;
+    background-size: cover;
+}
+.label:nth-child(4){
+    background: url('./Multimedia/Imgs/fichaRoja.png') center center no-repeat;
+    background-size: cover;
+}
+.label:nth-child(6){
+    background: url('./Multimedia/Imgs/fichaNegra.png') center center no-repeat;
+    background-size: cover;
+}
+.icons{
+    background: none;
+    background-size: cover;
+    width: 35px;
+    height: 35px;
+    border: none;
+    position: relative;
+    transition: .3s;
+}
+.delete{
+    background-image: url("./Multimedia/Imgs/delete.png");
+}
+.redo{
+    background-image: url("./Multimedia/Imgs/reset.png");
+}
+.icons:hover{
+    opacity: .8;
+}
+.icons::before{
+    content: "Repetir apuesta";
+    position: absolute;
+    bottom: 110%;
+    left: 60%;      
+    opacity: 0;
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    transition: .3s;
+}
+.delete::before{
+    content: "Borrar apuesta";
+}
+.icons:hover::before{
+    opacity: 1;
+}
+.icons:active{
+    opacity: .6;
 }
