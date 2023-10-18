@@ -1,3 +1,7 @@
+const key_auth = "Mbur6jCW4pX2s8FcQ3XTggC2CzimoQb2Ej6TwjNh6QkZPcASO8v0FXU1";
+const cantidadXPagina = 5;
+let imagen_numero = 0;
+let fondos = [];
 const rojo = [1, 3, 5 ,7 ,9, 12, 14 ,16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36];
 const negro = [2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35];
 const limitesAngulos = [0, 9.72973, 19.45945, 29.18919, 38.91892, 48.64865, 58.37838, 68.10811, 77.83784, 87.56757, 97.29730, 107.02703,
@@ -24,6 +28,8 @@ let fichas = document.querySelectorAll(".monto");
 const container = document.querySelector(".lista_numeros")
 const redo = document.querySelector(".redo");
 const reset = document.querySelector(".delete");
+const shuffle = document.querySelector(".shuffle");
+const body = document.body;
 
 let saldo = 5000;
 let montoNumero = 0;
@@ -249,3 +255,30 @@ function saldo_toast(){
           }
     }).showToast();
 }
+
+async function getBackgrounds(){
+    const response = await fetch("https://api.pexels.com/v1/search?query=casino%20las%20vegas&per_page=5", {
+        headers: { Authorization: key_auth}
+    });
+    const data = await response.json();
+    console.log(data);
+    return data;
+}
+
+getBackgrounds()
+.then(({photos}) => {
+    fondos = JSON.parse(JSON.stringify(photos));
+    console.log(fondos);
+});
+shuffle.addEventListener("click", function() {
+    if(imagen_numero >= fondos.length){
+        body.style.background = "url(./Multimedia/Imgs/background.jpg)";
+        imagen_numero = 0;
+    }else{
+        const fondo = fondos[imagen_numero].src.landscape;
+        body.style.background = `url(${fondo})`;
+        body.style.backgroundSize = "cover";
+        imagen_numero++
+    }
+    
+})

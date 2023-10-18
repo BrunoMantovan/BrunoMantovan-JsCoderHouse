@@ -3,18 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="./indexStyles.css">
+    <title>Ruleta</title>
+    <link rel="stylesheet" type="text/css" href="./node_modules/toastify-js/src/toastify.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
-    <div class="inicio">
-        <h3>Bienvenido</h3>
+    <div class="lista_numeros"></div>
+    <button class="shuffle"></button>
+    <div class="contenedor">
+        <div class="juego">        
+            <img class="flecha" src="/Multimedia/Imgs/flecha.png" alt="">
+            <img class="ruleta" src="/Multimedia/Imgs/ruleta.png" alt="">        
+        </div>
+    </div>
+    <section class="tabla">
+        <div class="cero"><button class="boton cero_bt" id="0"><span>0</span></button></div>
+        <div><button class="boton color_rojo"><span>3</span></button></div>
+        <div><button class="boton"><span>6</span></button></div>
+        <div><button class="boton color_rojo"><span>9</span></button></div>
+        <div><button class="boton color_rojo"><span>12</span></button></div>
+        <div><button class="boton"><span>15</span></button></div>
+        <div><button class="boton color_rojo"><span>18</span></button></div>
+        <div><button class="boton color_rojo"><span>21</span></button></div>
+        <div><button class="boton"><span>24</span></button></div>
+        <div><button class="boton color_rojo"><span>27</span></button></div>
+        <div><button class="boton color_rojo"><span>30</span></button></div>
+        <div><button class="boton"><span>33</span></button></div>
+        <div><button class="boton color_rojo"><span>36</span></button></div>
+        <div><button class="boton paridad"><span>3ra</span></button></div>
+        <div><button class="boton"><span>2</span></button></div>
+        <div><button class="boton color_rojo"><span>5</span></button></div>
+        <div><button class="boton"><span>8</span></button></div>
+        <div><button class="boton"><span>11</span></button></div>
+        <div><button class="boton color_rojo"><span>14</span></button></div>
+        <div><button class="boton"><span>17</span></button></div>
+        <div><button class="boton"><span>20</span></button></div>
+        <div><button class="boton color_rojo"><span>23</span></button></div>
+        <div><button class="boton"><span>26</span></button></div>
+        <div><button class="boton"><span>29</span></button></div>
+        <div><button class="boton color_rojo"><span>32</span></button></div>
+        <div><button class="boton"><span>35</span></button></div>
+        <div><button class="boton paridad"><span>2da</span></button></div>
+        <div><button class="boton color_rojo"><span>1</span></button></div>
+        <div><button class="boton"><span>4</span></button></div>
+        <div><button class="boton color_rojo"><span>7</span></button></div>
+        <div><button class="boton"><span>10</span></button></div>
+        <div><button class="boton"><span>13</span></button></div>
+        <div><button class="boton color_rojo"><span>16</span></button></div>
+        <div><button class="boton color_rojo"><span>19</span></button></div>
+        <div><button class="boton"><span>22</span></button></div>
+        <div><button class="boton color_rojo"><span>25</span></button></div>
+        <div><button class="boton"><span>28</span></button></div>
+        <div><button class="boton"><span>31</span></button></div>
+        <div><button class="boton color_rojo"><span>34</span></button></div>
+        <div><button class="boton paridad"><span>1ra</span></button></div>
+        <div class="docena_1"><button class="boton paridad">1 - 12</button></div>
+        <div class="docena_2"><button class="boton paridad">13 - 24</button></div>
+        <div class="docena_3"><button class="boton paridad">25 - 36</button></div>
+        <div class="mitad_1"><button class="boton paridad">1 - 18</button></div>
+        <div class="par"><button class="boton paridad">Par</button></div>
+        <div class="rojo"><button class="boton color_rojo paridad">Rojo</button></div>
+        <div class="negro"><button class="boton color_negro paridad">Negro</button></div>
+        <div class="impar"><button class="boton paridad">Impar</button></div>
+        <div class="mitad_2"><button class="boton paridad">19 - 36</button></div>
+    </section>
+    <footer>
         <div>
-            <a href="./signUp.html"><button>Crear Usuario</button></a>
-            <a href="./signIn.html"><button>Tengo un Usuario</button></a>
+            <h3 class="saldo">Saldo: $<span class="saldo_cantidad"></span></h3>
+            <h3>Apuesta: $<span class="apostado_cantidad"></span></h3>
         </div>
         
-    </div>
+        <div class="div_footer">
+            <input type="radio" name="monto" class="monto" id="100"></input>
+            <label class="label" for="100"></label>
+            <input type="radio" name="monto" class="monto" id="500"></input>
+            <label class="label" for="500"></label>
+            <input type="radio" name="monto" class="monto" id="1000"></input>            
+            <label class="label" for="1000"></label>
+        </div>
+        <div class="div_footer2">
+            <button class="icons delete"></button>
+            <button class="icons redo"></button>
+            <button class="jugar">Jugar</button>    
+        </div>
+    </footer>
+    <script type="text/javascript" src="./node_modules/toastify-js/src/toastify.js"></script>
+    <script type="text/javascript" src="./index.js"></script>
 </body>
+
 </html>

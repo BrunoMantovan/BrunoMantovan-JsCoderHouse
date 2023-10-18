@@ -8,7 +8,7 @@
 
 
 body{
-    background-image: url(/Multimedia/Imgs/vecteezy_poker-background-with-neon-chip-and-ace-bet-vector_24238317.jpg);
+    background-image: url(./Multimedia/Imgs/background.jpg);
     background-size: cover;
 }
 .lista_numeros{
@@ -33,6 +33,25 @@ body{
     justify-content: center;
     align-items: center;
     transition: .5s;
+}
+.shuffle{
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    background-color: transparent;
+    background-image: url("./Multimedia/Imgs/shuffle2.png") ;
+    width: 60px;
+    height: 60px;
+    border: none;
+    background-size: cover;
+    cursor: pointer;
+    transition: all .3s;
+}
+.shuffle:hover{
+    opacity: .8;
+}
+.shuffle:active{
+    opacity: .6;
 }
 .juego{
     position: relative;
@@ -211,7 +230,7 @@ footer .div_footer2 button{
     height: 35px;
     border: none;
     position: relative;
-    transition: .3s;
+    transition: all .3s;
 }
 .delete{
     background-image: url("./Multimedia/Imgs/delete.png");
