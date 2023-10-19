@@ -328,3 +328,6 @@ footer button{
 .popUp > button:active{
     color: #fff;
 }
+.jugar{
+    border-radius: 5px;
+}
