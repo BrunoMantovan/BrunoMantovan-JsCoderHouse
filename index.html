@@ -8,6 +8,14 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <dialog class="popUp" id="modal">
+        <h2>Añadir Fondos</h2>
+        <form class="form" method="dialog">
+            <input class="input" type="number" pattern="[0-9]*" placeholder="$10.000">
+            <button type="submit">Confirmar</button>
+        </form>
+        <button>X</button>
+    </dialog>
     <div class="lista_numeros"></div>
     <button class="shuffle"></button>
     <div class="contenedor">
@@ -69,7 +77,10 @@
     </section>
     <footer>
         <div>
-            <h3 class="saldo">Saldo: $<span class="saldo_cantidad"></span></h3>
+            <div class="saldo">
+                <h3>Saldo: $<span class="saldo_cantidad"></span></h3>
+                <button class="icons añadir_plata"></button>
+            </div>
             <h3>Apuesta: $<span class="apostado_cantidad"></span></h3>
         </div>
         

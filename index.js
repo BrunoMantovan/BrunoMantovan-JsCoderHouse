@@ -29,9 +29,11 @@ const container = document.querySelector(".lista_numeros")
 const redo = document.querySelector(".redo");
 const reset = document.querySelector(".delete");
 const shuffle = document.querySelector(".shuffle");
+const añadir_saldo = document.querySelector(".añadir_plata");
+const form = document.querySelector(".form");
 const body = document.body;
 
-let saldo = 5000;
+let saldo = 50000;
 let montoNumero = 0;
 let montoColor = 0;
 let montoParidad = 0;
@@ -77,33 +79,7 @@ for(let i=0; i<fichas.length; i++){
         }
     });
 }
-reset.addEventListener("click", function(){
-    if(jugando == false){
-        array = [];
-        saldo += apostado;
-        apostado = 0;
-        saldo_text_html.innerHTML = `${saldo}`;
-        apostado_text_html.innerHTML = `${apostado}`;
-        console.log(array);
-    }else{jugando_toast();}
-})
-redo.addEventListener("click", function(){
-    const total = array.reduce((accumulator, currentObject) => {
-        return accumulator + currentObject.plata;
-    }, 0);
-    if(jugando == false && ((saldo + apostado - total) >= 0)){
-        array = JSON.parse(JSON.stringify(array_repeat));
-        saldo += apostado;
-        apostado = total;
-        saldo -= total;
-        saldo_text_html.innerHTML = `${saldo}`;
-        apostado_text_html.innerHTML = `${apostado}`;
-        console.log(array);
-    }else if(jugando != false){
-        jugando_toast();
-    }else{saldo_toast();}
-    
-})
+
 function añadirAlArray(valor){
     const existingItemIndex = array.findIndex(item => item.valor == valor);
 
@@ -117,7 +93,6 @@ function añadirAlArray(valor){
     console.log(array);
     }
 }
-
 
 function placeBet(valor, plata){
     this.valor = valor;
@@ -282,3 +257,42 @@ shuffle.addEventListener("click", function() {
     }
     
 })
+
+reset.addEventListener("click", function(){
+    if(jugando == false){
+        array = [];
+        saldo += apostado;
+        apostado = 0;
+        actualizarSaldo();
+    }else{jugando_toast();}
+})
+redo.addEventListener("click", function(){
+    const total = array.reduce((accumulator, currentObject) => {
+        return accumulator + currentObject.plata;
+    }, 0);
+    if(jugando == false && ((saldo + apostado - total) >= 0)){
+        array = JSON.parse(JSON.stringify(array_repeat));
+        saldo += apostado;
+        apostado = total;
+        saldo -= total;
+        actualizarSaldo();
+        console.log(array);
+    }else if(jugando != false){
+        jugando_toast();
+    }else{saldo_toast();}
+    
+})
+añadir_saldo.addEventListener("click", () =>{
+    const modal = document.querySelector(`#modal`)
+    modal.showModal();
+})
+form.addEventListener("submit", () =>{
+    const input = document.querySelector(".input");
+    const inputValue = parseInt(input.value);
+    saldo += inputValue;
+    actualizarSaldo();
+})
+function actualizarSaldo(){
+    saldo_text_html.innerHTML = `${saldo}`;
+    apostado_text_html.innerHTML = `${apostado}`;
+}
