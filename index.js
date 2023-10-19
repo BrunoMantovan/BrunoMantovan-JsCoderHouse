@@ -30,6 +30,7 @@ const redo = document.querySelector(".redo");
 const reset = document.querySelector(".delete");
 const shuffle = document.querySelector(".shuffle");
 const añadir_saldo = document.querySelector(".añadir_plata");
+const boton_cruz = document.querySelector("#x");
 const form = document.querySelector(".form");
 const body = document.body;
 
@@ -285,6 +286,10 @@ redo.addEventListener("click", function(){
 añadir_saldo.addEventListener("click", () =>{
     const modal = document.querySelector(`#modal`)
     modal.showModal();
+})
+boton_cruz.addEventListener("click", () =>{
+    const modal = document.querySelector(`#modal`)
+    modal.close();
 })
 form.addEventListener("submit", () =>{
     const input = document.querySelector(".input");
