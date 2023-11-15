@@ -397,6 +397,10 @@ footer button{
     }
 }
 @media (max-width: 550px) {
+    .lista_numeros{
+        right: 1.5%;
+        top: 25%;
+    }
     .juego{
         position: relative;
         width: 250px;
