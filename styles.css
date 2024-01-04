@@ -15,7 +15,7 @@ body{
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     position: absolute;
     right: 1.5%;
     top: 4%;
@@ -398,8 +398,12 @@ footer button{
 }
 @media (max-width: 550px) {
     .lista_numeros{
-        right: 1.5%;
-        top: 25%;
+        left: 50%;
+        top: 295px;
+        transform: translate(-50%, -50%) rotate(-90deg);
+    }
+    .numeros_salidos{
+        transform: rotate(90deg);
     }
     .juego{
         position: relative;
@@ -418,8 +422,8 @@ footer button{
         transform: rotate(90deg);
         height: 260px;
         width: 450px;
-        margin-bottom: 175px;
-        margin-top: 120px;
+        margin-bottom: 180px;
+        margin-top: 175px;
     }
     .tabla div button span{
         transform: rotate(-90deg);

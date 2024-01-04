@@ -87,11 +87,9 @@ function añadirAlArray(valor){
     if (existingItemIndex !== -1) {
     // Si numero ya existe en array, aumentar plata
     array[existingItemIndex].plata += plata;
-    console.log(`Increased plata for ${valor} to ${array[existingItemIndex].plata}`);
     } else {
     const elegido = new placeBet(valor, plata);
     array.push(elegido);
-    console.log(array);
     }
 }
 
@@ -119,7 +117,6 @@ function pago(grados){
     ruleta.style.transition = `none`;
 
     const deg_real = grados%360;
-    console.log(deg_real);
     ruleta.style.transform = `rotate(${deg_real}deg)`;
     for (let i = 0; i < limitesAngulos.length; i++) {
         if (deg_real > limitesAngulos[i]) {
@@ -133,7 +130,6 @@ function pago(grados){
     
     const numeroTirado = new tiro(numeroRandom);
     const {num, colCode} = numeroTirado
-    console.log(numeroTirado);
 
     const existingItemNumero = array.findIndex((item) => item.valor == numeroTirado.num);
     const existingItemColor = array.findIndex((item) => item.valor == numeroTirado.col);
@@ -156,7 +152,6 @@ function pago(grados){
     apostado_text_html.innerHTML = `${apostado}`;
     array_repeat = JSON.parse(JSON.stringify(array));
     array.splice(0, array.length);
-    console.log(array_repeat);
 }
 
 function tiro(numero){
@@ -237,14 +232,12 @@ async function getBackgrounds(){
         headers: { Authorization: key_auth}
     });
     const data = await response.json();
-    console.log(data);
     return data;
 }
 
 getBackgrounds()
 .then(({photos}) => {
     fondos = JSON.parse(JSON.stringify(photos));
-    console.log(fondos);
 });
 shuffle.addEventListener("click", function() {
     if(imagen_numero >= fondos.length){
@@ -277,7 +270,6 @@ redo.addEventListener("click", function(){
         apostado = total;
         saldo -= total;
         actualizarSaldo();
-        console.log(array);
     }else if(jugando != false){
         jugando_toast();
     }else{saldo_toast();}
